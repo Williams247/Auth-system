@@ -18,13 +18,13 @@ module.exports = (mail, otp, username) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "email address",
-      pass: "password to your email"
+      user: "mymail@gmail.com",
+      pass: "mypassword"
     }
   });
 
   const mailOptions = {
-    from: "sender's mail",
+    from: "mymail@gmail.com",
     to: mail,
     subject: "Retrieve password",
     html: mailTemplate
@@ -35,7 +35,7 @@ module.exports = (mail, otp, username) => {
       if (error) {
         reject(error)
       } else {
-        resolve(`An OTP has been sent to ""${mail}"", please check in a minute time.`)
+        resolve(`An OTP has been sent to your email, check in a minute time, if you still did not get a mail, check your spam.`)
       }
     });
   });
